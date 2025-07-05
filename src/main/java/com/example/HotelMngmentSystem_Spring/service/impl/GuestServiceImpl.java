@@ -1,4 +1,4 @@
-package com.example.HotelMngmentSystem_Spring.service;
+package com.example.HotelMngmentSystem_Spring.service.impl;
 
 import com.example.HotelMngmentSystem_Spring.entity.Guest;
 import com.example.HotelMngmentSystem_Spring.repository.GuestRepository;
