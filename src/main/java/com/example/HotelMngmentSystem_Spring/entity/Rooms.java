@@ -3,6 +3,8 @@ package com.example.HotelMngmentSystem_Spring.entity;
 import com.example.HotelMngmentSystem_Spring.enums.RoomStatus;
 import com.example.HotelMngmentSystem_Spring.enums.RoomType;
 import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -21,6 +23,9 @@ public class Rooms {
 
     private double price;
     private int floor;
+
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Reservation> reservations;
 
     public Rooms(int floor, double price, Long roomId, RoomStatus roomStatus, RoomType type) {
         this.floor = floor;
@@ -47,6 +52,14 @@ public class Rooms {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 
     public Long getRoomId() {
